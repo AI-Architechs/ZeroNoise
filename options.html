@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ZeroNoise Settings</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <header>
+        <h1>ZeroNoise Settings</h1>
+        <p>Everything runs locally in your browser.</p>
+      </header>
+
+      <section class="card">
+        <h2>Custom Filter Tags</h2>
+        <p class="hint">Add topics, names, or keywords you want to filter (e.g., "influencer", "Dhruv Rathee", "standup"). The extension will use these to help identify content to filter.</p>
+        <div class="tag-input-group">
+          <input type="text" id="tagInput" placeholder="Enter a tag (e.g., celebrity gossip, crypto)" />
+          <button id="addTag">Add Tag</button>
+        </div>
+        <div id="customTags" class="tags-display"></div>
+      </section>
+
+      <section class="card">
+        <h2>Filter Thresholds</h2>
+        <p class="hint">Adjust how aggressively content is filtered. Lower values = more filtering.</p>
+        <label>Soft filter threshold (blur) <input id="softThreshold" type="number" step="0.1" min="0.5" max="10" /></label>
+        <label>Strong filter threshold (hide) <input id="hardThreshold" type="number" step="0.1" min="1" max="10" /></label>
+        <button id="saveThresholds">Save Thresholds</button>
+      </section>
+
+      <section class="card">
+        <h2>Learned Signals</h2>
+        <p class="hint">Top patterns inferred from your actions. Click × to remove individual patterns.</p>
+        <div class="columns">
+          <div>
+            <h3>Hidden Patterns</h3>
+            <div id="hiddenSignals" class="patterns-container"></div>
+          </div>
+          <div>
+            <h3>Always-show Patterns</h3>
+            <div id="shownSignals" class="patterns-container"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Backup & Restore</h2>
+        <p class="hint">Export your learned patterns to backup or transfer to another browser.</p>
+        <div class="button-group">
+          <button id="exportPatterns">Export Patterns</button>
+          <button id="importPatterns">Import Patterns</button>
+        </div>
+        <input type="file" id="importFile" accept=".json" style="display: none;" />
+      </section>
+
+      <section class="card danger">
+        <h2>Reset</h2>
+        <p>Clear learned patterns and restart from default behavior.</p>
+        <button id="resetLearning">Reset Learning</button>
+      </section>
+
+      <p id="status"></p>
+    </main>
+    <script src="options.js"></script>
+  </body>
+  </html>

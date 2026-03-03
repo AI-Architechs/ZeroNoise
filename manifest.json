@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "ZeroNoise",
+  "description": "Learn-as-you-browse content filter. Hide unwanted posts, tag them by category, and the extension learns your preferences. 100% local, no tracking.",
+  "version": "0.2.0",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "*://*.reddit.com/*",
+    "*://*.x.com/*",
+    "*://*.twitter.com/*",
+    "*://*.youtube.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "ZeroNoise",
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.reddit.com/*",
+        "*://*.x.com/*",
+        "*://*.twitter.com/*",
+        "*://*.youtube.com/*"
+      ],
+      "js": [
+        "lib/helpers.js",
+        "sites/generic.js",
+        "sites/reddit.js",
+        "sites/x.js",
+        "sites/youtube.js",
+        "site-adapters.js",
+        "content-core.js",
+        "content.js"
+      ],
+      "css": [
+        "styles.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
