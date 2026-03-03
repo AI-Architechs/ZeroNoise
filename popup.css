@@ -17,6 +17,18 @@ body {
   margin-bottom: 2px;
 }
 
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+}
+
 h1 {
   font-size: 19px;
   font-weight: 600;

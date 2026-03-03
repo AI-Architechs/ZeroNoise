@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "ZeroNoise",
   "description": "Learn-as-you-browse content filter. Hide unwanted posts, tag them by category, and the extension learns your preferences. 100% local, no tracking.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "permissions": [
     "storage"
   ],
@@ -12,13 +12,23 @@
     "*://*.twitter.com/*",
     "*://*.youtube.com/*"
   ],
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "32": "assets/icons/icon32.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  },
   "background": {
     "service_worker": "background.js",
     "type": "module"
   },
   "action": {
     "default_title": "ZeroNoise",
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "assets/icons/icon16.png",
+      "32": "assets/icons/icon32.png"
+    }
   },
   "options_page": "options.html",
   "content_scripts": [
